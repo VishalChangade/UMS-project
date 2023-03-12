@@ -1,0 +1,29 @@
+
+
+<div class="c">
+<form class="form" [formGroup]="unlockFrom">
+   <h1 class="text-center">Unlock Account</h1>
+   <br>
+   <div class="col">
+       <label for="" class="form-label">Email Id</label>
+       <input type="email"class="form-control"  placeholder="Email Id" formControlName="email" name="email">
+       <span class="text-danger" *ngIf="!unlockFrom.get('email')?.valid && unlockFrom.get('email')?.touched">* invalid email id</span>
+   </div>
+   <div class="col">
+       <label for="" class="form-label">Temporary Password</label>
+       <input type="password" class="form-control" placeholder="Temporary Password" formControlName="tempPwd" name="tempPwd">
+   </div>
+   <div class="col">
+       <label for="" class="form-label">New Password</label>
+       <input type="password" class="form-control" placeholder="New Password" formControlName="newPwd" name="newPwd">
+   </div>
+   <div class="col">
+       <label for="" class="form-label">ConfirmPassword</label>
+       <input type="password" class="form-control" placeholder="ConfirmPassword" formControlName="confirmPwd" name="confirmPwd">
+      
+
+   </div>
+
+   <button class="btn btn-info mt-3" (click)="unlockthis()">Submit</button>
+</form>
+</div>

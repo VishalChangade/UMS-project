@@ -1,0 +1,34 @@
+form{
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    box-shadow: 5px 5px 10px black;
+    margin-top: -100px;
+}
+.c
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    background:linear-gradient(120deg,rgb(97, 213, 255) 20% ,white 50%,rgb(192, 67, 255));
+    border-radius: 4px;
+    padding: 5px;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.194) inset ;
+}
+@media (max-width:480px){
+    form{
+        width: 90%;
+        position: relative;
+        top: -100px;
+    }
+}

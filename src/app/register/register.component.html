@@ -1,0 +1,98 @@
+<div class="container-fluid cont">
+        <form  class="form"    [formGroup]="register" >
+        <h1 class="text-center">Register</h1><hr><br>
+           <div class="col-md d-flex">
+              <div class="col-md">
+                <label for="" class="form-label">First Name</label>
+                <input type="text" class="form-control"  placeholder="First Name" formControlName="fname">
+              <span class="text-danger" *ngIf="!register.get('fname')?.valid && register.get('fname')?.touched">* Enter first name</span>
+
+              </div>&nbsp;&nbsp;
+          
+              &nbsp;
+              &nbsp;
+              <div class="col-md">
+              <label for="" class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+              <span class="text-danger" *ngIf="!register.get('lname')?.valid && register.get('lname')?.touched">* Enter last name</span>
+
+            </div>
+           </div>
+
+           
+           <div class="col-md d-flex gencount">
+              <div class="col">
+                <label for="" class="form-label">Gender</label><br/>
+                <select name="gender" id="gender" class="form-control"  formControlName="gender">
+                  <!-- <option selected>select</option> -->
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              &nbsp;&nbsp;
+              &nbsp;
+              &nbsp;
+              <div class="col">
+                <label for="" class="form-label">Country</label>
+              <select name="CountryId" formControlName="countryId"  class="form-control" 
+              (change)="stateid($any($event.target).value)">
+              
+                   <option  *ngFor="let count of countries |keyvalue" [value]="count.key">{{count.value}}</option>
+              </select>
+            </div>
+           </div> 
+
+           
+           <div class="col-md d-flex">
+              <div class="col">
+                <label for="" class="form-label">State</label>
+                <select name="stateId" formControlName="stateId" class="form-control" (change)="cityId($any($event.target).value)">
+              <!-- <option selected>State</option> -->
+                     <option *ngFor="let count of state |keyvalue" [value]="count.key">{{count.value}}</option>
+                </select>
+              </div>&nbsp;&nbsp;
+              &nbsp;
+              &nbsp;
+              <div class="col">
+                <label for="" class="form-label">City</label>
+                <select name="cityId" formControlName="cityId"  class="form-control">
+              <!-- <option selected>City</option>  -->
+                     <option *ngFor="let co of city |keyvalue" [value]="co.key">{{co.value}}</option>
+                </select>
+            </div>
+           </div>
+
+           
+           <div class="col d-flex">
+              <div class="col">
+                <label for="" class="form-label">Date Of Birth</label>
+                <input type="date" class="form-control"  formControlName="dob">
+              </div>&nbsp;&nbsp;
+              &nbsp;
+              &nbsp;
+              <div class="col">
+              <label for="" class="form-label">Email</label>
+              <input type="email" placeholder="Email" (blur)="emailCheck($any($event.target).value)" class="form-control" formControlName="email" name="email" >
+              <span class="text-danger" *ngIf="!register.get('email')?.valid && register.get('email')?.touched">invalid email id</span>
+            </div>
+           </div>
+
+
+           <div class="col-md d-flex">
+              <div class="col-md-6">
+                <label for="" class="form-label">Mobile Number</label>
+                <input type="number" placeholder="Mobile Number" class="form-control" formControlName="phno">
+                <span class="text-danger" *ngIf="!register.get('phno')?.valid && register.get('phno')?.touched">Enter valid mobile number</span>
+
+              </div>
+        
+           </div>
+           <div class="col-md mt-3 set">
+            <button type="submit" class="btn btn-primary" (click)="regiUser()">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="reset" class="btn btn-danger">Reset</button>
+          </div>
+
+          
+      </form>
+</div>
+
